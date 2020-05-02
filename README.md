@@ -1,6 +1,6 @@
 # provider_shop
 
-![Video](https://thumbs.gfycat.com/SlipperyHonorableAddax-mobile.mp4)
+![Video](https://media.giphy.com/media/cNN7K8QMlPN8XsxaSF/giphy.gif)
 
 Mobiler Provider Architecture için yapılmış basit bir örnek. 
 
