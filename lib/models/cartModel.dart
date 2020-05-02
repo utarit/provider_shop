@@ -5,8 +5,16 @@ class CartModel extends ChangeNotifier {
   List<Tuple> cart = List<Tuple>();
 
   void addProduct(Product product) {
-    cart.add(Tuple(product, 1));
 
+    for (Tuple tuple in cart) {
+      if (tuple.product.key == product.key) {
+        tuple.quantity++;
+        notifyListeners();
+        return;
+      }
+    }
+
+    cart.add(Tuple(product, 1));
     notifyListeners();
   }
 
@@ -45,6 +53,17 @@ class CartModel extends ChangeNotifier {
 
     notifyListeners();
   }
+
+  int howManyInCart(UniqueKey key) {
+    int sum = 0;
+
+    for (Tuple tuple in cart) {
+      if (tuple.product.key == key) {
+        sum += tuple.quantity;
+      }
+    }
+    return sum;
+  }
 }
 
 class Product {
@@ -54,7 +73,12 @@ class Product {
   String imageUrl;
   String description;
 
-  Product(this.key, {this.name = "", this.price = 0, this.imageUrl = "", this.description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."});
+  Product(this.key,
+      {this.name = "",
+      this.price = 0,
+      this.imageUrl = "",
+      this.description =
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."});
 }
 
 class Tuple {

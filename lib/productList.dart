@@ -6,7 +6,7 @@ var productList = [
       name: "Shoes",
       price: 50,
       imageUrl:
-          "https://www.freepngimg.com/thumb/shoes/28084-5-sneaker-transparent-image-thumb.png"),
+          "https://pngimg.com/uploads/running_shoes/running_shoes_PNG5827.png"),
   Product(UniqueKey(),
       name: "VR Set",
       price: 970,
